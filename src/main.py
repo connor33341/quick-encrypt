@@ -11,6 +11,7 @@ def GenerateKey():
     return Key,KeyUUID
 
 if __name__ == "__main__":
+    DefaultUUID = ""
     print("[INFO]: Initalizing")
     while True:
         Mode = input("[INPUT][E|D] Enter Mode: ").lower()
@@ -27,9 +28,12 @@ if __name__ == "__main__":
             print("[INFO]: Tokens Encrypted")
             print(f"[INFO]: Output UUID")
             print(EncryptUUID)
+            DefaultUUID = EncryptUUID
         elif Mode == "d":
             print("[INFO]: Selected Decryption")
             EncryptUUID = input("[INPUT][TYPE:STR] UUID: ")
+            if EncryptUUID == "":
+                EncryptUUID = DefaultUUID
             try:
                 with open(f"keys/{EncryptUUID}.key","rb") as File:
                     KeyContents = File.read()
