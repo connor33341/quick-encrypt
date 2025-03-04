@@ -51,3 +51,5 @@ if __name__ == "__main__":
             except Exception as Error:
                 print("[ERROR]: Check your uuid, or add the files into /keys and /tokens")
                 print(Error)
+        else:
+            print("[WARN]: Invalid Mode")
